@@ -6,8 +6,12 @@ app = Flask(__name__)
 
 @app.route("/")
 @app.route("/home")
-def home_page():
+def home():
     return render_template('index.html')
 
-def recipe_page():
-    return render_template('recipes.html')
+@app.route("/recipes")
+def recipes():
+    return render_template('recipes.html', title='recipes')
+
+if __name__ == '__main__':
+    app.run(debug=True)
